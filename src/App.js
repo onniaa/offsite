@@ -1,21 +1,22 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, HashRouter } from "react-router-dom";
 import "./App.css";
 
 const App = () => {
   return (
-    <Router basename="/offsite">
-      <div className="App">
-        <nav>
-          <Link to="/modern-philosophy">Modern Philosophy</Link>
-          <Link to="/advanced-philosophy">Advanced Philosophy</Link>
-        </nav>
-        <Routes>
-          <Route path="/modern-philosophy" element={<ModernPhilosophy />} />
-          <Route path="/advanced-philosophy" element={<AdvancedPhilosophy />} />
-        </Routes>
-      </div>
-    </Router>
+    <HashRouter basename="/">
+    <div className="App">
+      <nav>
+        <Link to="/modern-philosophy">Modern Philosophy</Link>
+        <Link to="/advanced-philosophy">Advanced Philosophy</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/modern-philosophy" element={<ModernPhilosophy />} />
+        <Route path="/advanced-philosophy" element={<AdvancedPhilosophy />} />
+      </Routes>
+    </div>
+  </HashRouter>
   );
 };
 
