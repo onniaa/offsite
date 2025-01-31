@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Typography, Button, Box, Divider, useMediaQuery } from '@mui/material';
+import { Container, Typography, Button, Box, Divider, useMediaQuery, Chip } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { purple } from '@mui/material/colors';
@@ -85,6 +85,13 @@ const CoursePage = () => {
         <DetailSection title='שעה' value={courseDetails.time} />
         <DetailSection title='מיקום' value={courseDetails.location} />
         <DetailSection title='מחיר' value={courseDetails.price} />
+
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <Typography variant={bodyVariant}fontWeight="bold">מספר משתתפים:</Typography>
+          <Typography variant={bodyVariant}>15</Typography>
+          <Chip size='small' label="נותרו 3 מקומות פנויים" color="success" sx={{ my: 1 }} />
+        </div>
+        <Divider sx={{ my: 1 }} />
 
         <Box textAlign="center" my={3}>
           <Button variant="contained" size="large" sx={{ width: '100%', backgroundColor: 'rgb(34, 36, 42)', color: 'white' }}>
