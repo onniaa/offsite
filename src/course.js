@@ -32,11 +32,11 @@ const CoursePage = () => {
 
 	const handleClickOpen = () => {
 		setOpen(true);
-	}
+	};
 
 	const handleClose = () => {
 		setOpen(false);
-	}
+	};
 
 	const DetailSection = ({ title, value }) => {
 		return (
@@ -53,7 +53,7 @@ const CoursePage = () => {
 				<Divider sx={{ my: 1 }} />
 			</>
 		);
-	}
+	};
 
 	return (
 		<ThemeProvider theme={theme}>
@@ -131,7 +131,7 @@ const CoursePage = () => {
 
 				<Box mt={4}>
 					<Typography variant={isMobile ? 'h7' : 'h6'} fontWeight="bold">
-            platform.io
+            		  platform.io
 					</Typography>
 					<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
 						<Typography variant={bodyVariant} fontWeight="bold">צרו קשר:</Typography>

@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, Box } from '@mui/material';
+import {
+	Dialog,
+	DialogTitle,
+	DialogContent,
+	DialogActions,
+	Button,
+	TextField,
+	Box,
+} from '@mui/material';
 
 const RegistrationDialog = ({ open, handleClose }) => {
 	const [submitted, setSubmitted] = useState(false);
@@ -62,12 +70,12 @@ const RegistrationDialog = ({ open, handleClose }) => {
 			</DialogContent>
 
 			{!submitted && (
-				<DialogActions>
+				<DialogActions sx={{ marginBottom: 1 }}>
 					<Button onClick={onClose} color="default">ביטול</Button>
 					<Button
 						onClick={handleSubmit}
 						variant="contained"
-						sx={{backgroundColor: 'rgb(34, 36, 42)', color: 'white' }}
+						sx={{ backgroundColor: 'rgb(34, 36, 42)', color: 'white' }}
 					>
             לתשלום
 					</Button>
