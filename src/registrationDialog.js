@@ -9,7 +9,7 @@ import {
 	Box,
 } from '@mui/material';
 
-const RegistrationDialog = ({ open, handleClose }) => {
+const RegistrationDialog = ({ open, handleClose, isPayment }) => {
 	const [submitted, setSubmitted] = useState(false);
 	const [formData, setFormData] = useState({ name: '', age: '', gender: '', email: '', phone: '' });
 
@@ -45,10 +45,9 @@ const RegistrationDialog = ({ open, handleClose }) => {
 			open={open}
 			onClose={onClose}
 			sx={{ direction: 'rtl', textAlign: 'right' }}
-			// fullWidth
 			fullWidth
 		>
-			<DialogTitle>{!submitted ? 'הרשמה לסדנה' : 'נרשמת בהצלחה! 🎉'}</DialogTitle>
+			<DialogTitle>{!submitted ? 'הרשמה' : 'נרשמת בהצלחה! 🎉'}</DialogTitle>
 			<DialogContent>
 				{!submitted ? (
 					<Box display="flex" flexDirection="column" gap={2}>
@@ -61,9 +60,9 @@ const RegistrationDialog = ({ open, handleClose }) => {
 				) : (
 					<Box mb={1}>
 						<p>
-                ניצור איתך קשר בקרוב להשלמת התשלום ושליחת פרטים נוספים על הסדנה.
+              ניצור איתך קשר בקרוב להשלמת התשלום ושליחת פרטים נוספים.
 							<br />
-                מחכים לראות אותך!
+              מחכים לראות אותך!
 						</p>
 					</Box>
 				)}
@@ -76,8 +75,9 @@ const RegistrationDialog = ({ open, handleClose }) => {
 						onClick={handleSubmit}
 						variant="contained"
 						sx={{ backgroundColor: 'rgb(34, 36, 42)', color: 'white' }}
+						disabled={Object.values(formData).some(value => !value)}
 					>
-            לתשלום
+						{isPayment ? 'לתשלום' : 'להרשמה'}
 					</Button>
 				</DialogActions>
 			)}

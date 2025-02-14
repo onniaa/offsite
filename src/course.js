@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
 import {
 	Container,
 	Typography,
@@ -6,29 +7,39 @@ import {
 	Box,
 	Divider,
 	useMediaQuery,
-	Chip,
 } from '@mui/material';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { purple } from '@mui/material/colors';
+import { grey, purple } from '@mui/material/colors';
 
-import { courseDetails } from './course-details';
-import cover from './assets/cover.jpeg';
+import { courses } from './courses-catalog';
 import RegistrationDialog from './registrationDialog';
-
-const theme = createTheme({
-	direction: 'rtl',
-	typography: {
-		fontFamily: ['Greta, GretaLangs, serif'],
-		color: 'rgb(34, 36, 42)'
-	},
-});
+import { AvailabilityChip } from './availabilty-chip';
 
 const CoursePage = () => {
+	const { classId } = useParams();
 	const isMobile = useMediaQuery('(max-width:600px)');
 	const bodyVariant = isMobile ? 'body2' : 'body1';
+	window.scrollTo(0, 0);
 
 	const [open, setOpen] = useState(false);
+
+	const course = courses.find(course => course.id === classId);
+	if (!course) {
+		return <Typography variant={bodyVariant}>לא נמצאה סדנה</Typography>;
+	}
+
+	const {
+		teacher,
+		title,
+		description,
+		duration,
+		startDate,
+		time,
+		location,
+		price,
+		image,
+	} = course;
+
+	const isPast = new Date(course.startDateEn) < new Date();
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -56,32 +67,24 @@ const CoursePage = () => {
 	};
 
 	return (
-		<ThemeProvider theme={theme}>
-			<CssBaseline />
+		<>
 			<Container sx={{ textAlign: 'right', direction: 'rtl', padding: 0, borderRadius: 0 }}>
-				<div style={{ textAlign: 'end' }}>
-					<Typography variant='h7' fontWeight="bold">
-            platform.io
-					</Typography>
-				</div>
-
-				<Divider sx={{ backgroundColor: 'black', height: 2, mb: 2, mt: 1 }} />
 
 				<Box sx={{ width: '100%', height: isMobile ? 150 : 250, bgcolor: 'grey.300', mb: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 					<img
-						src={cover}
+						src={image}
 						alt="תמונת אירוע"
 						style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '4px 4px 0px 0px' }}
 					/>
 				</Box>
 
-				<Box sx={{ mt: 0, backgroundColor: purple[100], borderRadius: '0px 0px 4px 4px', padding: 2 }}>
+				<Box sx={{ mt: 0, backgroundColor: grey[200], borderRadius: '0px 0px 4px 4px', padding: 2 }}>
 					<Typography variant={isMobile ? 'h6' : 'h4'} gutterBottom sx={{ fontWeight: 'bold' }}>
-						{courseDetails.title}
+						{title}
 					</Typography>
 
 					<Typography variant={bodyVariant} gutterBottom>
-						{courseDetails.description}
+						{description}
 					</Typography>
 					<Typography variant={bodyVariant} gutterBottom>
                 —
@@ -89,9 +92,9 @@ const CoursePage = () => {
 
 					<div style={{ display: 'flex', alignItems: 'center', gap: 0 }}>
 						<Typography variant={bodyVariant} gutterBottom>
-							<span style={{ fontWeight: 'bold' }}>{courseDetails.teacher.name}, </span>
+							<span style={{ fontWeight: 'bold' }}>{teacher.name}, </span>
 							<span>
-								{courseDetails.teacher.bio}
+								{teacher.bio}
 							</span>
 						</Typography>
 					</div>
@@ -99,27 +102,27 @@ const CoursePage = () => {
 
 				<Divider sx={{ my: 2 }} />
 
-				<DetailSection title='מספר מפגשים' value={courseDetails.duration} />
-				<DetailSection title='תאריך התחלה' value={courseDetails.startDate} />
-				<DetailSection title='שעה' value={courseDetails.time} />
-				<DetailSection title='מיקום' value={courseDetails.location} />
-				<DetailSection title='מחיר' value={courseDetails.price} />
+				<DetailSection title='מספר מפגשים' value={duration} />
+				<DetailSection title='תאריך התחלה' value={startDate} />
+				<DetailSection title='שעה' value={time} />
+				<DetailSection title='מיקום' value={location} />
+				<DetailSection title='מחיר' value={`${price}*`} />
 
 				<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
 					<Typography variant={bodyVariant}fontWeight="bold">מספר משתתפים:</Typography>
-					<Typography variant={bodyVariant}>15</Typography>
-					<Chip size='small' label="נותרו 3 מקומות פנויים" color="success" sx={{ my: 1 }} />
+					<Typography variant={bodyVariant}>{course.spots.total}</Typography>
+					<AvailabilityChip availableSpots={course.spots.available} />
 				</div>
 				<Divider sx={{ my: 1 }} />
 
 				<Box textAlign="center" my={3}>
 					<Button
 						onClick={handleClickOpen}
-						variant="contained"
+						variant={course.spots.available && !isPast ? 'contained' : 'outlined'}
 						size="large"
-						sx={{ width: '100%', backgroundColor: 'rgb(34, 36, 42)', color: 'white' }}
+						sx={{ width: '100%' }}
 					>
-            הזמן עכשיו
+						{isPast ? 'הרשמה למחזור הבא' : course.spots.available ? 'להרשמה' : 'לרשימת המתנה'}
 					</Button>
 				</Box>
 
@@ -129,20 +132,10 @@ const CoursePage = () => {
           *לא מרוצים? תקבלו 100% מכספכם בחזרה - ללא שאלות!
 				</Typography>
 
-				<Box mt={4}>
-					<Typography variant={isMobile ? 'h7' : 'h6'} fontWeight="bold">
-            		  platform.io
-					</Typography>
-					<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-						<Typography variant={bodyVariant} fontWeight="bold">צרו קשר:</Typography>
-						<Typography variant={bodyVariant}>info@platform.io</Typography>
-					</div>
-				</Box>
 			</Container>
 
-			<RegistrationDialog open={open} handleClose={handleClose}/>
-
-		</ThemeProvider>
+			<RegistrationDialog open={open} handleClose={handleClose} isPayment={course.spots.available && !isPast} />
+		</>
 	);
 };
 
