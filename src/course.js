@@ -8,7 +8,7 @@ import {
 	Divider,
 	useMediaQuery,
 } from '@mui/material';
-import { grey, purple } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 
 import { courses } from './courses-catalog';
 import RegistrationDialog from './registrationDialog';

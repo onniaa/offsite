@@ -5,17 +5,20 @@ import {
 	Box,
 	Button,
 	Divider,
+	useMediaQuery,
 } from '@mui/material';
 
 import { courses } from './courses-catalog';
 import { CourseCard } from './course-card';
 
 const HomePage = () => {
+	const isMobile = useMediaQuery('(max-width:600px)');
+
 	const [showPastCourses, setShowPastCourses] = useState(false);
 
 	const futureCourses = courses
 		.filter(course => new Date(course.startDateEn) > new Date())
-		.sort((a, b) => new Date(a.startDateEn) - new Date(b.startDateEn));
+		.sort((a, b) => new Date(b.startDateEn) - new Date(a.startDateEn));
 
 	const pastCourses = courses
 		.filter(course => new Date(course.startDateEn) < new Date())
@@ -27,10 +30,10 @@ const HomePage = () => {
 
 	return (
 		<Container sx={{ textAlign: 'center', mt: 4 }}>
-			<Typography variant="h3" fontWeight="bold" gutterBottom>
+			<Typography variant={isMobile ? 'h5' : 'h3'} fontWeight="bold" gutterBottom>
         להיפגש. להתפתח. ליהנות.
 			</Typography>
-			<Typography variant="h6" color="textSecondary" gutterBottom>
+			<Typography variant={isMobile ? 'body1' : 'h6'} color="textSecondary" gutterBottom>
 				צאו מהבית, תכירו אנשים ותלמדו דברים חדשים.
 			</Typography>
 			<Box sx={{ mt: 4, display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
@@ -65,10 +68,10 @@ const HomePage = () => {
 				</Box>
 			)}
 			<Box sx={{ mt: 6, textAlign: 'center', padding: 4, backgroundColor: '#f5f5f5', borderRadius: 2 }}>
-				<Typography variant="h5" fontWeight="bold" gutterBottom>
+				<Typography variant={isMobile ? 'body1' : 'h5'} fontWeight="bold" gutterBottom>
 					רוצים לפתוח סדנה משלכם?
 				</Typography>
-				<Typography variant="body1" color="textSecondary" gutterBottom>
+				<Typography variant={isMobile ? 'body2' : 'body1'} color="textSecondary" gutterBottom>
 					יש לכם רעיון לקורס או סדנה? בואו נהפוך אותו למציאות יחד!
 				</Typography>
 				<Button variant="contained" sx={{ mt: 2 }}>

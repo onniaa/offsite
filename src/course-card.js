@@ -8,6 +8,7 @@ import {
 	Button,
 	CardMedia,
 	Tooltip,
+	useMediaQuery,
 } from '@mui/material';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -19,6 +20,8 @@ import { AvailabilityChip } from './availabilty-chip';
 export const CourseCard = ({ course }) => {
 	const navigate = useNavigate();
 	const isPast = new Date(course.startDateEn) < new Date();
+	const isMobile = useMediaQuery('(max-width:600px)');
+	const bodyVariant = isMobile ? 'body2' : 'body1';
 
 	return (
 		<Card key={course.id} sx={{ width: 350, maxHeight: 500, margin: 'auto', mb: 3, borderRadius: 3, overflow: 'hidden', boxShadow: 3 }}>
@@ -31,7 +34,7 @@ export const CourseCard = ({ course }) => {
 			<CardContent sx={{ textAlign: 'right', padding: 3 }}>
 				<Tooltip title={course.title} arrow>
 					<Typography
-						variant="h6"
+						variant={isMobile ? 'h7' : 'h5'}
 						fontWeight="bold"
 						sx={{
 							whiteSpace: 'nowrap',
@@ -43,28 +46,28 @@ export const CourseCard = ({ course }) => {
 						{course.title}
 					</Typography>
 				</Tooltip>
-				<Typography variant="body2" color="textSecondary" sx={{ mt: 1 }}>
+				<Typography variant={bodyVariant} color="textSecondary" sx={{ mt: 1 }}>
 					{course.instructor}
 				</Typography>
-				<Typography variant="body2" color="textSecondary">
+				<Typography variant={bodyVariant} color="textSecondary">
 					{course.teacher.name}
 				</Typography>
 				<div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 16 }}>
 					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 						<CalendarMonthIcon fontSize="small" />
-						<Typography variant="body2">{course.startDate}</Typography>
+						<Typography variant={bodyVariant}>{course.startDate}</Typography>
 					</Box>
 					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 						<AccessTimeIcon fontSize="small" />
-						<Typography variant="body2">{course.time}</Typography>
+						<Typography variant={bodyVariant}>{course.time}</Typography>
 					</Box>
 					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 						<LocationOnIcon fontSize="small" />
-						<Typography variant="body2">{course.location}</Typography>
+						<Typography variant={bodyVariant}>{course.location}</Typography>
 					</Box>
 					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 						<PeopleIcon fontSize="small" />
-						<Typography variant="body2">{course.spots.total} משתתפים</Typography>
+						<Typography variant={bodyVariant}>{course.spots.total} משתתפים</Typography>
 						{!isPast && <AvailabilityChip availableSpots={course.spots.available} />}
 					</Box>
 				</div>

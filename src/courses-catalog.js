@@ -12,8 +12,8 @@ export const courses = [
 		},
 		price: '₪375',
 		duration: 7,
-		startDate: 'שבת, 15 בפברואר, 2025',
-		startDateEn: '2025-02-15',
+		startDate: 'רביעי, 12 במרץ, 2025',
+		startDateEn: '2025-03-12',
 		time: '19:00 - 20:45',
 		location: 'תחנת רוח, החשמונאים 12',
 		spots: {
@@ -35,8 +35,8 @@ export const courses = [
 		},
 		price: '₪300',
 		duration: 4,
-		startDate: 'שישי, 10 בינואר, 2025',
-		startDateEn: '2025-01-10',
+		startDate: 'שלישי, 25 בפברואר, 2025',
+		startDateEn: '2025-02-25',
 		time: '08:30 - 09:45',
 		location: 'חוף גורדון, תל אביב',
 		spots: {
@@ -104,8 +104,8 @@ export const courses = [
 		},
 		price: '₪280',
 		duration: 6,
-		startDate: 'שלישי, 25 בפברואר, 2025',
-		startDateEn: '2025-02-25',
+		startDate: 'שישי, 10 בינואר, 2025',
+		startDateEn: '2025-01-10',
 		time: '20:00 - 21:30',
 		location: 'סלון הספרות, תל אביב',
 		spots: {
@@ -127,8 +127,8 @@ export const courses = [
 		},
 		price: '₪320',
 		duration: 4,
-		startDate: 'רביעי, 12 במרץ, 2025',
-		startDateEn: '2025-03-12',
+		startDate: 'שבת, 15 בפברואר, 2025',
+		startDateEn: '2025-02-15',
 		time: '18:30 - 20:00',
 		location: 'האב פיננסי, תל אביב',
 		spots: {
