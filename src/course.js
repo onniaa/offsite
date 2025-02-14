@@ -114,7 +114,7 @@ const CoursePage = () => {
 						size="large"
 						sx={{ width: '100%' }}
 					>
-						{isPast ? 'הרשמה למחזור הבא' : course.spots.available ? 'להרשמה' : 'לרשימת המתנה'}
+						{isPast ? 'הרשמה למחזור הבא' : course.spots.available ? 'הזמן עכשיו' : 'לרשימת המתנה'}
 					</Button>
 				</Box>
 
