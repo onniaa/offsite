@@ -11,7 +11,7 @@ import {
 import { grey } from '@mui/material/colors';
 
 import { courses } from './courses-catalog';
-import RegistrationDialog from './registrationDialog';
+import { RegistrationDialog } from './registrationDialog';
 import { AvailabilityChip } from './availabilty-chip';
 
 const CoursePage = () => {
@@ -40,14 +40,6 @@ const CoursePage = () => {
 	} = course;
 
 	const isPast = new Date(course.startDateEn) < new Date();
-
-	const handleClickOpen = () => {
-		setOpen(true);
-	};
-
-	const handleClose = () => {
-		setOpen(false);
-	};
 
 	const DetailSection = ({ title, value }) => {
 		return (
@@ -117,7 +109,7 @@ const CoursePage = () => {
 
 				<Box textAlign="center" my={3}>
 					<Button
-						onClick={handleClickOpen}
+						onClick={() => setOpen(true)}
 						variant={course.spots.available && !isPast ? 'contained' : 'outlined'}
 						size="large"
 						sx={{ width: '100%' }}
@@ -134,7 +126,11 @@ const CoursePage = () => {
 
 			</Container>
 
-			<RegistrationDialog open={open} handleClose={handleClose} isPayment={course.spots.available && !isPast} />
+			<RegistrationDialog
+				open={open}
+				handleClose={() => setOpen(false)}
+				isPayment={course.spots.available && !isPast}
+			/>
 		</>
 	);
 };

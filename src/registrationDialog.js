@@ -9,7 +9,7 @@ import {
 	Box,
 } from '@mui/material';
 
-const RegistrationDialog = ({ open, handleClose, isPayment }) => {
+export const RegistrationDialog = ({ open, handleClose, isPayment }) => {
 	const [submitted, setSubmitted] = useState(false);
 	const [formData, setFormData] = useState({ name: '', age: '', gender: '', email: '', phone: '' });
 
@@ -84,5 +84,3 @@ const RegistrationDialog = ({ open, handleClose, isPayment }) => {
 		</Dialog>
 	);
 };
-
-export default RegistrationDialog;
