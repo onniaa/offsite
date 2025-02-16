@@ -38,14 +38,24 @@ const HomePage = () => {
 		window.scrollTo(0, 0);
 	}, []);
 
+	const randomQuote = quotes[new Date().getDate() % quotes.length];
+
 	return (
 		<>
 			<Container sx={{ textAlign: 'center', mt: 4 }}>
 				<Typography variant={isMobile ? 'h5' : 'h3'} fontWeight="bold" gutterBottom>
-        להיפגש. להתפתח. ליהנות.
+        	להיפגש. ללמוד. להתפתח.
 				</Typography>
-				<Typography variant={isMobile ? 'body1' : 'h6'} color="textSecondary" gutterBottom>
-				צאו מהבית, תכירו אנשים ותלמדו דברים חדשים.
+				<Typography
+					variant={isMobile ? 'body1' : 'h6'}
+					color="textSecondary"
+					sx={{ direction: 'ltr' }}
+				>
+					<span style={{ fontStyle: 'italic' }}>
+						{`"${randomQuote.quote}"`}
+					</span>
+					<br />
+					<span style={{ fontWeight: 'bold' }}>- {randomQuote.source}</span>
 				</Typography>
 				{selctedTag && (
 					<div style={{ display: 'flex', justifyContent: 'center', direction: 'ltr' }}>
@@ -142,3 +152,22 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+const quotes = [
+	{
+		quote: 'The beautiful thing about learning is that nobody can take it away from you.',
+		source: 'B.B. King',
+	},
+	{
+		quote: 'It is not true that people stop pursuing dreams because they grow old, they grow old because they stop pursuing dreams.',
+		source: 'Gabriel Garcia Marquez',
+	},
+	{
+		quote: 'We shall not cease from exploration, and the end of all our exploring will be to arrive where we started and know the place for the first time.',
+		source: 'T.S. Eliot',
+	},
+	{
+		quote: 'The more that you read, the more things you will know. The more that you learn, the more places you’ll go.',
+		source: 'Dr. Seuss',
+	},
+];
