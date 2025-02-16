@@ -36,7 +36,6 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 	return (
 		<Card
 			key={course.id}
-			onClick={() => navigate(`/classes/${course.id}`)}
 			sx={{
 				width: 350,
 				maxHeight: 500,
@@ -45,14 +44,15 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 				borderRadius: 3,
 				overflow: 'hidden',
 				boxShadow: 3,
-				cursor: 'pointer',
 			}}
 		>
 			<CardMedia
+				onClick={() => navigate(`/classes/${course.id}`)}
 				component="img"
 				height="140"
 				image={course.image}
 				alt={course.title}
+				sx={{ cursor: 'pointer' }}
 			/>
 			<CardContent sx={{ textAlign: 'right', padding: 3 }}>
 				<Tooltip title={course.title} arrow>
