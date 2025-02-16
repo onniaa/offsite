@@ -9,22 +9,45 @@ import {
 	CardMedia,
 	Tooltip,
 	useMediaQuery,
+	Chip,
 } from '@mui/material';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PeopleIcon from '@mui/icons-material/People';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import {
+	green,
+	blue,
+	purple,
+	pink,
+	indigo,
+	teal,
+	cyan,
+} from '@mui/material/colors';
 
 import { AvailabilityChip } from './availabilty-chip';
 
-export const CourseCard = ({ course }) => {
+export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 	const navigate = useNavigate();
 	const isPast = new Date(course.startDateEn) < new Date();
 	const isMobile = useMediaQuery('(max-width:600px)');
 	const bodyVariant = isMobile ? 'body2' : 'body1';
 
 	return (
-		<Card key={course.id} sx={{ width: 350, maxHeight: 500, margin: 'auto', mb: 3, borderRadius: 3, overflow: 'hidden', boxShadow: 3 }}>
+		<Card
+			key={course.id}
+			onClick={() => navigate(`/classes/${course.id}`)}
+			sx={{
+				width: 350,
+				maxHeight: 500,
+				margin: 'auto',
+				mb: 3,
+				borderRadius: 3,
+				overflow: 'hidden',
+				boxShadow: 3,
+				cursor: 'pointer',
+			}}
+		>
 			<CardMedia
 				component="img"
 				height="140"
@@ -46,12 +69,43 @@ export const CourseCard = ({ course }) => {
 						{course.title}
 					</Typography>
 				</Tooltip>
-				<Typography variant={bodyVariant} color="textSecondary" sx={{ mt: 1 }}>
-					{course.instructor}
-				</Typography>
 				<Typography variant={bodyVariant} color="textSecondary">
 					{course.teacher.name}
 				</Typography>
+				<div
+					onClick={(e) => e.stopPropagation()}
+					style={{
+						display: 'flex',
+						gap: 8,
+						flexWrap: 'wrap',
+						marginTop: 8,
+					}}
+				>
+					{course.tags.map(tag => (
+						<Chip
+							key={tag}
+							label={tag}
+							size="small"
+							variant={tag === selectedTag ? 'filled' : 'outlined'}
+							sx={{
+								borderColor: getTagColor(tag),
+								borderWidth: 2,
+								backgroundColor: tag === selectedTag ? getTagColor(tag) : '',
+								'&:hover': {
+									backgroundColor: tag === selectedTag ? getTagColor(tag) : 'black',
+								},
+								color: tag === selectedTag ? 'white' : 'black',
+							}}
+							onClick={() => {
+								if (tag === selectedTag) {
+									setSelectedTag('');
+								} else {
+									setSelectedTag(tag);
+								}
+							}}
+						/>
+					))}
+				</div>
 				<div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 16 }}>
 					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 						<CalendarMonthIcon fontSize="small" />
@@ -86,4 +140,10 @@ export const CourseCard = ({ course }) => {
 			</CardContent>
 		</Card>
 	);
+};
+
+export const getTagColor = (tag) => {
+	const colors = [green, blue, purple, pink, indigo, teal, cyan];
+	const index = tag.charCodeAt(Math.round(tag.length / 2)) % colors.length;
+	return colors[index][300];
 };
