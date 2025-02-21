@@ -10,7 +10,10 @@ const theme = createTheme({
 	direction: 'rtl',
 	typography: {
 		fontFamily: '"Tinos", serif',
-		color: 'rgb(34, 36, 42)'
+		color: 'rgb(34, 36, 42)',
+		button: {
+			fontWeight: 700
+		}
 	},
 	palette: {
 		primary: {
