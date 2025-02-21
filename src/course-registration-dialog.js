@@ -40,8 +40,8 @@ export const RegistrationDialog = ({ open, handleClose, course }) => {
 	};
 
 	const onClose = () => {
-		clearForm();
 		handleClose();
+		setTimeout(clearForm, 500);
 	};
 
 	return (

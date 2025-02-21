@@ -33,8 +33,8 @@ export const ContactDialog = ({ open, handleClose }) => {
 	};
 
 	const onClose = () => {
-		clearForm();
 		handleClose();
+		setTimeout(clearForm, 500);
 	};
 
 	return (
