@@ -6,9 +6,9 @@ export const courses = [
 		shortDescription: 'חמישה מפגשים אודות ברוך שפינוזה',
 		tags: ['ליברליזם', 'פוליטיקה', 'פילוסופיה'],
 		teacher: {
-			name: 'ד"ר אסף דה פריס',
+			name: 'אסף דה פריס',
 			bio: 'מורה למחשבת ישראל ומדריך פדגוגי במשרד החינוך. לאסף תואר ראשון ושני בפילוסופיה יהודית מאוניברסיטת תל אביב והוא בוגר של בית ספר מנדל למנהיגות חינוכית.',
-			image: 'https://source.unsplash.com/600x300/?people',
+			image: 'https://cdn.prod.website-files.com/64d7d22f53b2cc995497a72e/651454a387ad86997457edba_asaf%20-%20croped.jpg',
 		},
 		price: '₪375',
 		duration: 7,

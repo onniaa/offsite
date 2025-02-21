@@ -10,6 +10,7 @@ import {
 	Tooltip,
 	useMediaQuery,
 	Chip,
+	Avatar,
 } from '@mui/material';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -38,7 +39,7 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 			key={course.id}
 			sx={{
 				width: 350,
-				maxHeight: 500,
+				maxHeight: 600,
 				margin: 'auto',
 				mb: 3,
 				borderRadius: 3,
@@ -69,16 +70,19 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 						{course.title}
 					</Typography>
 				</Tooltip>
-				<Typography variant={bodyVariant} color="textSecondary">
-					{course.teacher.name}
-				</Typography>
+				<Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 1 }}>
+					<Avatar src={course.teacher.image} sx={{ width: 24, height: 24 }} />
+					<Typography variant={bodyVariant} color="textSecondary">
+						{course.teacher.name}
+					</Typography>
+				</Box>
 				<div
 					onClick={(e) => e.stopPropagation()}
 					style={{
 						display: 'flex',
 						gap: 8,
 						flexWrap: 'wrap',
-						marginTop: 8,
+						marginTop: 12,
 					}}
 				>
 					{course.tags.map(tag => (
