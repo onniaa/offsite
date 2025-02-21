@@ -7,12 +7,14 @@ import {
 	Box,
 	Divider,
 	useMediaQuery,
+	Chip,
 } from '@mui/material';
 import { grey } from '@mui/material/colors';
 
 import { courses } from './courses-catalog';
 import { RegistrationDialog } from './course-registration-dialog';
 import { AvailabilityChip } from './availabilty-chip';
+import { getTagColor } from './tags';
 
 const CoursePage = () => {
 	const { classId } = useParams();
@@ -92,7 +94,29 @@ const CoursePage = () => {
 					</div>
 				</Box>
 
-				<Divider sx={{ my: 2 }} />
+				<div
+					style={{
+						display: 'flex',
+						gap: 8,
+						flexWrap: 'wrap',
+						margin: '16px 0',
+					}}
+				>
+					{course.tags.map(tag => (
+						<Chip
+							key={tag}
+							label={tag}
+							size="small"
+							variant='outlined'
+							sx={{
+								borderColor: getTagColor(tag),
+								borderWidth: 2,
+							}}
+						/>
+					))}
+				</div>
+
+				<Divider sx={{ mb: 1 }} />
 
 				<DetailSection title='מספר מפגשים' value={duration} />
 				<DetailSection title='תאריך התחלה' value={startDate} />

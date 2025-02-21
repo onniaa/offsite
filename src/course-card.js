@@ -16,17 +16,9 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PeopleIcon from '@mui/icons-material/People';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import {
-	green,
-	blue,
-	purple,
-	pink,
-	indigo,
-	teal,
-	cyan,
-} from '@mui/material/colors';
 
 import { AvailabilityChip } from './availabilty-chip';
+import { getTagColor } from './tags';
 
 export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 	const navigate = useNavigate();
@@ -56,15 +48,17 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 				sx={{ cursor: 'pointer' }}
 			/>
 			<CardContent sx={{ textAlign: 'right', padding: 3 }}>
-				<Tooltip title={course.title} arrow>
+				<Tooltip title={course.title} arrow enterDelay={500} leaveDelay={100}>
 					<Typography
 						variant={isMobile ? 'h7' : 'h6'}
 						fontWeight="bold"
+						onClick={() => navigate(`/classes/${course.id}`)}
 						sx={{
 							whiteSpace: 'nowrap',
 							overflow: 'hidden',
 							textOverflow: 'ellipsis',
 							display: 'block',
+							cursor: 'pointer',
 						}}
 					>
 						{course.title}
@@ -104,7 +98,7 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 								borderWidth: 2,
 								backgroundColor: tag === selectedTag ? getTagColor(tag) : '',
 								'&:hover': {
-									backgroundColor: tag === selectedTag ? getTagColor(tag) : 'black',
+									backgroundColor: tag === selectedTag ? getTagColor(tag) : '',
 								},
 								color: tag === selectedTag ? 'white' : 'black',
 							}}
@@ -152,10 +146,4 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 			</CardContent>
 		</Card>
 	);
-};
-
-export const getTagColor = (tag) => {
-	const colors = [green, blue, purple, pink, indigo, teal, cyan];
-	const index = tag.charCodeAt(Math.round(tag.length / 2)) % colors.length;
-	return colors[index][300];
 };

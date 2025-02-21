@@ -10,7 +10,8 @@ import {
 } from '@mui/material';
 
 import { courses } from './courses-catalog';
-import { CourseCard, getTagColor } from './course-card';
+import { CourseCard } from './course-card';
+import { getTagColor } from './tags';
 import { ContactDialog } from './contact-dialog';
 
 const HomePage = () => {
