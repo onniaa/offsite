@@ -35,7 +35,8 @@ const CoursePage = () => {
 		description,
 		duration,
 		startDate,
-		time,
+		startTime,
+		endTime,
 		location,
 		price,
 		image,
@@ -120,7 +121,7 @@ const CoursePage = () => {
 
 				<DetailSection title='מספר מפגשים' value={duration} />
 				<DetailSection title='תאריך התחלה' value={startDate} />
-				<DetailSection title='שעה' value={time} />
+				<DetailSection title='שעה' value={`${endTime} - ${startTime}`} />
 				<DetailSection title='מיקום' value={location} />
 				<DetailSection title='מחיר' value={`${price}*`} />
 

@@ -119,7 +119,7 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 					</Box>
 					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 						<AccessTimeIcon fontSize="small" />
-						<Typography variant={bodyVariant}>{course.time}</Typography>
+						<Typography variant={bodyVariant}>{course.endTime} - {course.startTime}</Typography>
 					</Box>
 					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 						<LocationOnIcon fontSize="small" />

@@ -14,7 +14,8 @@ export const courses = [
 		duration: 7,
 		startDate: 'רביעי, 12 במרץ, 2025',
 		startDateEn: '2025-03-12',
-		time: '19:00 - 20:45',
+		startTime: '19:00',
+		endTime: '20:45',
 		location: 'תחנת רוח, החשמונאים 12',
 		spots: {
 			total: 15,
@@ -37,7 +38,8 @@ export const courses = [
 		duration: 4,
 		startDate: 'שלישי, 25 בפברואר, 2025',
 		startDateEn: '2025-02-25',
-		time: '07:30 - 08:15',
+		startTime: '07:30',
+		endTime: '08:45',
 		location: 'חוף גורדון, תל אביב',
 		spots: {
 			total: 8,
@@ -60,7 +62,8 @@ export const courses = [
 		duration: 5,
 		startDate: 'שני, 5 בפברואר, 2025',
 		startDateEn: '2025-02-05',
-		time: '18:00 - 19:30',
+		startTime: '18:00',
+		endTime: '19:30',
 		location: 'בית הסופרים, תל אביב',
 		spots: {
 			total: 10,
@@ -83,7 +86,8 @@ export const courses = [
 		duration: 8,
 		startDate: 'שבת, 20 בינואר, 2025',
 		startDateEn: '2025-01-20',
-		time: '07:00 - 08:00',
+		startTime: '07:00',
+		endTime: '08:00',
 		location: 'חוף ירושלים, תל אביב',
 		spots: {
 			total: 20,
@@ -106,7 +110,8 @@ export const courses = [
 		duration: 6,
 		startDate: 'שישי, 10 בינואר, 2025',
 		startDateEn: '2025-01-10',
-		time: '20:00 - 21:30',
+		startTime: '20:00',
+		endTime: '21:30',
 		location: 'סלון הספרות, תל אביב',
 		spots: {
 			total: 12,
@@ -129,8 +134,9 @@ export const courses = [
 		duration: 4,
 		startDate: 'שבת, 15 בפברואר, 2025',
 		startDateEn: '2025-02-15',
-		time: '18:30 - 20:00',
-		location: 'האב פיננסי, תל אביב',
+		startTime: '18:30',
+		endTime: '20:00',
+		location: 'קפה פיני, גבעתיים',
 		spots: {
 			total: 20,
 			available: 7,
