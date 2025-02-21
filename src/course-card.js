@@ -71,7 +71,15 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 					</Typography>
 				</Tooltip>
 				<Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 1 }}>
-					<Avatar src={course.teacher.image} sx={{ width: 24, height: 24 }} />
+					<Avatar
+						src={course.teacher.image}
+						sx={{
+							width: 32,
+							height: 32,
+							boxShadow: 2,
+							border: '1px solid white',
+						}}
+					/>
 					<Typography variant={bodyVariant} color="textSecondary">
 						{course.teacher.name}
 					</Typography>
