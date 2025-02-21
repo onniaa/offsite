@@ -1,14 +1,14 @@
 import React from 'react';
 import { Routes, Route, HashRouter, useNavigate } from 'react-router-dom';
-import { Typography, Divider, Box, Container, useMediaQuery } from '@mui/material';
+import { Typography, Divider, Container } from '@mui/material';
 
 import './App.css';
 import HomePage from './home';
 import CoursePage from './course';
 
 const App = () => {
-	const isMobile = useMediaQuery('(max-width:600px)');
-	const bodyVariant = isMobile ? 'body2' : 'body1';
+	// const isMobile = useMediaQuery('(max-width:600px)');
+	// const bodyVariant = isMobile ? 'body2' : 'body1';
 
 	return (
 		<>
@@ -22,9 +22,9 @@ const App = () => {
 							<Route path={'/classes' + '/:classId'} element={<CoursePage />} />
 						</Routes>
 
-						<Divider sx={{ backgroundColor: 'black', mb: 1, mt: 3 }} />
+						{/* <Divider sx={{ backgroundColor: 'black', mb: 1, mt: 3 }} /> */}
 
-						<Box mt={2}>
+						{/* <Box mt={2}>
 							<Typography variant={isMobile ? 'h7' : 'h6'} fontWeight="bold">
             		platform.io
 							</Typography>
@@ -32,7 +32,7 @@ const App = () => {
 								<Typography variant={bodyVariant} fontWeight="bold">צרו קשר:</Typography>
 								<Typography variant={bodyVariant}>info@platform.io</Typography>
 							</div>
-						</Box>
+						</Box> */}
 					</Container>
 				</div>
 

@@ -9,9 +9,11 @@ import {
 	Box,
 } from '@mui/material';
 
-export const RegistrationDialog = ({ open, handleClose, isPayment }) => {
+import { sendForm } from './forms';
+
+export const ContactDialog = ({ open, handleClose }) => {
 	const [submitted, setSubmitted] = useState(false);
-	const [formData, setFormData] = useState({ name: '', age: '', gender: '', email: '', phone: '' });
+	const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
 
 	const handleChange = (e) => {
 		setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -19,19 +21,14 @@ export const RegistrationDialog = ({ open, handleClose, isPayment }) => {
 
 	const handleSubmit = () => {
 		setSubmitted(true);
-		fetch('https://api.web3forms.com/submit', {
-			method: 'POST',
-			headers: { 'Content-Type': 'application/json' },
-			body: JSON.stringify({
-				...formData,
-				access_key: '1d7f08e8-fb21-46a0-be6e-1a283f21c3b3',
-			})
-		})
-			.catch(error => console.error('Error submitting form:', error));
+		sendForm({
+			...formData,
+			registrationType: 'contact',
+		});
 	};
 
 	const clearForm = () => {
-		setFormData({ name: '', age: '', gender: '', email: '', phone: '' });
+		setFormData({ name: '', email: '', phone: '', message: '' });
 		setSubmitted(false);
 	};
 
@@ -47,22 +44,27 @@ export const RegistrationDialog = ({ open, handleClose, isPayment }) => {
 			sx={{ direction: 'rtl', textAlign: 'right' }}
 			fullWidth
 		>
-			<DialogTitle>{!submitted ? 'הרשמה' : 'נרשמת בהצלחה! 🎉'}</DialogTitle>
+			<DialogTitle>{!submitted ? 'צור קשר' : 'נשלח בהצלחה! 🎉'}</DialogTitle>
 			<DialogContent>
 				{!submitted ? (
 					<Box display="flex" flexDirection="column" gap={2}>
 						<TextField placeholder="שם מלא" name="name" value={formData.name} onChange={handleChange} />
-						<TextField fullWidth name="gender" placeholder="מגדר" value={formData.gender} onChange={handleChange}/>
-						<TextField fullWidth name="age" placeholder="גיל" value={formData.age} onChange={handleChange}/>
 						<TextField fullWidth placeholder="אימייל" name="email" value={formData.email} onChange={handleChange} />
 						<TextField fullWidth placeholder="מספר טלפון" name="phone" value={formData.phone} onChange={handleChange} />
+						<TextField
+							fullWidth
+							placeholder="הודעה"
+							name="message"
+							value={formData.message}
+							onChange={handleChange}
+							multiline
+							rows={4}
+						/>
 					</Box>
 				) : (
 					<Box mb={1}>
 						<p>
-              ניצור איתך קשר בקרוב להשלמת התשלום ושליחת פרטים נוספים.
-							<br />
-              מחכים לראות אותך!
+              ניצור איתך קשר בקרוב!
 						</p>
 					</Box>
 				)}
@@ -77,7 +79,7 @@ export const RegistrationDialog = ({ open, handleClose, isPayment }) => {
 						sx={{ backgroundColor: 'rgb(34, 36, 42)', color: 'white' }}
 						disabled={Object.values(formData).some(value => !value)}
 					>
-						{isPayment ? 'לתשלום' : 'להרשמה'}
+						שלח
 					</Button>
 				</DialogActions>
 			)}

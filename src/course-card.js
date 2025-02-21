@@ -57,7 +57,7 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 			<CardContent sx={{ textAlign: 'right', padding: 3 }}>
 				<Tooltip title={course.title} arrow>
 					<Typography
-						variant={isMobile ? 'h7' : 'h5'}
+						variant={isMobile ? 'h7' : 'h6'}
 						fontWeight="bold"
 						sx={{
 							whiteSpace: 'nowrap',

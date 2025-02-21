@@ -11,7 +11,7 @@ import {
 import { grey } from '@mui/material/colors';
 
 import { courses } from './courses-catalog';
-import { RegistrationDialog } from './registrationDialog';
+import { RegistrationDialog } from './course-registration-dialog';
 import { AvailabilityChip } from './availabilty-chip';
 
 const CoursePage = () => {
@@ -20,7 +20,7 @@ const CoursePage = () => {
 	const bodyVariant = isMobile ? 'body2' : 'body1';
 	window.scrollTo(0, 0);
 
-	const [open, setOpen] = useState(false);
+	const [courseToRegister, setCourseToRegister] = useState(null);
 
 	const course = courses.find(course => course.id === classId);
 	if (!course) {
@@ -109,7 +109,7 @@ const CoursePage = () => {
 
 				<Box textAlign="center" my={3}>
 					<Button
-						onClick={() => setOpen(true)}
+						onClick={() => setCourseToRegister(course)}
 						variant={course.spots.available && !isPast ? 'contained' : 'outlined'}
 						size="large"
 						sx={{ width: '100%' }}
@@ -126,11 +126,13 @@ const CoursePage = () => {
 
 			</Container>
 
-			<RegistrationDialog
-				open={open}
-				handleClose={() => setOpen(false)}
-				isPayment={course.spots.available && !isPast}
-			/>
+			{courseToRegister &&
+				<RegistrationDialog
+					open={!!courseToRegister}
+					handleClose={() => setCourseToRegister(null)}
+					course={courseToRegister}
+				/>
+			}
 		</>
 	);
 };
