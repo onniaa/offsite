@@ -9,11 +9,8 @@ import App from './App';
 const theme = createTheme({
 	direction: 'rtl',
 	typography: {
-		fontFamily: '"Tinos", serif',
+		fontFamily: '"Heebo", serif',
 		color: 'rgb(34, 36, 42)',
-		button: {
-			fontWeight: 700
-		}
 	},
 	palette: {
 		primary: {
