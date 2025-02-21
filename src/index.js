@@ -9,7 +9,7 @@ import App from './App';
 const theme = createTheme({
 	direction: 'rtl',
 	typography: {
-		fontFamily: ['Greta, GretaLangs, serif'],
+		fontFamily: '"Tinos", serif',
 		color: 'rgb(34, 36, 42)'
 	},
 	palette: {

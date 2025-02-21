@@ -120,7 +120,7 @@ const CoursePage = () => {
 
 				<Divider sx={{ my: 3 }} />
 
-				<Typography variant={bodyVariant} gutterBottom>
+				<Typography variant={bodyVariant} gutterBottom sx={{ fontStyle: 'italic' }}>
           *לא מרוצים? תקבלו 100% מכספכם בחזרה - ללא שאלות!
 				</Typography>
 
