@@ -140,7 +140,7 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 						{isPast ? 'לפרטים נוספים' : course.spots.available ? 'להרשמה' : 'לרשימת המתנה'}
 					</Button>
 					<Typography variant="h6" fontWeight="bold" sx={{ mt: 2 }}>
-						{course.price}
+						{course.price ? `₪${course.price}` : 'חינם'}
 					</Typography>
 				</div>
 			</CardContent>

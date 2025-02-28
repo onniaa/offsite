@@ -130,7 +130,14 @@ const HomePage = () => {
 					</Box>
 				)}
 
-				<Box sx={{ textAlign: 'center', padding: 4, backgroundColor: '#f5f5f5', borderRadius: 2 }}>
+				<Box sx={{
+					textAlign: 'center',
+					padding: 4,
+					backgroundColor: '#f5f5f5',
+					borderRadius: 2,
+					border: '2px solid',
+					boxShadow: 1,
+				}}>
 					<Typography variant={isMobile ? 'body1' : 'h5'} fontWeight="bold" gutterBottom>
 					רוצים לפתוח סדנה משלכם?
 					</Typography>

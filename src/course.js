@@ -123,12 +123,12 @@ const CoursePage = () => {
 				<DetailSection title='תאריך התחלה' value={startDate} />
 				<DetailSection title='שעה' value={`${endTime} - ${startTime}`} />
 				<DetailSection title='מיקום' value={location} />
-				<DetailSection title='מחיר' value={`${price}*`} />
+				<DetailSection title='מחיר' value={`${price ? `₪${course.price}*` : 'חינם' }`} />
 
 				<div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
 					<Typography variant={bodyVariant}fontWeight="bold">מספר משתתפים:</Typography>
 					<Typography variant={bodyVariant}>{course.spots.total}</Typography>
-					<AvailabilityChip availableSpots={course.spots.available} />
+					{!isPast && <AvailabilityChip availableSpots={course.spots.available} />}
 				</div>
 				<Divider sx={{ my: 1 }} />
 
