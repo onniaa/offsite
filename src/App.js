@@ -5,6 +5,7 @@ import { Typography, Divider, Container } from '@mui/material';
 import './App.css';
 import HomePage from './home';
 import CoursePage from './course';
+import MovingRock from './moving-rock';
 
 const App = () => {
 	// const isMobile = useMediaQuery('(max-width:600px)');
@@ -37,6 +38,7 @@ const App = () => {
 				</div>
 
 			</HashRouter>
+			<MovingRock />
 		</>
 	);
 };
