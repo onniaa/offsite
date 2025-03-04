@@ -7,7 +7,6 @@ import {
 	CardContent,
 	Button,
 	CardMedia,
-	Tooltip,
 	useMediaQuery,
 	Chip,
 	Avatar,
@@ -48,22 +47,13 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 				sx={{ cursor: 'pointer' }}
 			/>
 			<CardContent sx={{ textAlign: 'right', padding: 3 }}>
-				<Tooltip title={course.title} arrow enterDelay={500} leaveDelay={100}>
-					<Typography
-						variant={isMobile ? 'h7' : 'h6'}
-						fontWeight="bold"
-						onClick={() => navigate(`/classes/${course.id}`)}
-						sx={{
-							whiteSpace: 'nowrap',
-							overflow: 'hidden',
-							textOverflow: 'ellipsis',
-							display: 'block',
-							cursor: 'pointer',
-						}}
-					>
-						{course.title}
-					</Typography>
-				</Tooltip>
+				<Typography
+					variant={isMobile ? 'h7' : 'h6'}
+					fontWeight="bold"
+					onClick={() => navigate(`/classes/${course.id}`)}
+				>
+					{course.title}
+				</Typography>
 				<Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mt: 1 }}>
 					<Avatar
 						src={course.teacher.image}

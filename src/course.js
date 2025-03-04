@@ -65,7 +65,7 @@ const CoursePage = () => {
 		<>
 			<Container sx={{ textAlign: 'right', direction: 'rtl', padding: 0, borderRadius: 0 }}>
 
-				<Box sx={{ width: '100%', height: isMobile ? 150 : 250, bgcolor: 'grey.300', mb: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+				<Box sx={{ width: '100%', height: isMobile ? 150 : 350, bgcolor: 'grey.300', mb: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 					<img
 						src={image}
 						alt="תמונת אירוע"
