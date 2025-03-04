@@ -64,7 +64,7 @@ export const RegistrationDialog = ({ open, handleClose, course }) => {
 				) : (
 					<Box mb={1}>
 						<p>
-								ניצור איתך קשר בקרוב{registrationType === 'payment' ? 'להשלמת התשלום ושליחת פרטים נוספים' : ''}.
+								ניצור איתך קשר בקרוב{registrationType === 'payment' ? ' להשלמת התשלום ושליחת פרטים נוספים' : ''}.
 							<br />
               מחכים לראות אותך!
 						</p>
