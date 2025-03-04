@@ -50,7 +50,7 @@ const Header = () => {
 	return (
 		<>
 			<div style={{ textAlign: 'end', cursor: 'pointer' }} onClick={() => navigate('/')}>
-				<Typography variant="h6" fontWeight="bold" style={{ fontFamily: 'math' }}>
+				<Typography variant="h6" fontWeight="bold" style={{ fontFamily: 'Ponomar' }}>
 					platform.io
 				</Typography>
 			</div>
