@@ -15,6 +15,7 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import PeopleIcon from '@mui/icons-material/People';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
+import RepeatIcon from '@mui/icons-material/Repeat';
 
 import { AvailabilityChip } from './availabilty-chip';
 import { getTagColor } from './tags';
@@ -51,6 +52,7 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 					variant={isMobile ? 'h7' : 'h6'}
 					fontWeight="bold"
 					onClick={() => navigate(`/classes/${course.id}`)}
+					style={{ cursor: 'pointer' }}
 				>
 					{course.title}
 				</Typography>
@@ -104,6 +106,10 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 				</div>
 				<div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginTop: 16 }}>
 					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+						<RepeatIcon fontSize="small" />
+						<Typography variant={bodyVariant}>{course.duration} מפגשים</Typography>
+					</Box>
+					<Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
 						<CalendarMonthIcon fontSize="small" />
 						<Typography variant={bodyVariant}>{course.startDate}</Typography>
 					</Box>
@@ -121,6 +127,7 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 						{!isPast && <AvailabilityChip availableSpots={course.spots.available} />}
 					</Box>
 				</div>
+
 				<div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
 					<Button
 						variant={course.spots.available && !isPast ? 'contained' : 'outlined'}

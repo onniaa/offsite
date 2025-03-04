@@ -18,7 +18,7 @@ export const courses = [
 			image: 'https://cdn.prod.website-files.com/64d7d22f53b2cc995497a72e/651454a387ad86997457edba_asaf%20-%20croped.jpg',
 		},
 		price: 375,
-		duration: 7,
+		duration: 5,
 		startDate: 'רביעי, 12 במרץ, 2025',
 		startDateEn: '2025-03-12',
 		startTime: '19:00',

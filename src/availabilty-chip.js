@@ -10,7 +10,6 @@ export const AvailabilityChip = ({ availableSpots }) => {
 			size='small'
 			label={label}
 			color={color}
-			sx={{ my: 1 }}
 		/>
 	);
 };
