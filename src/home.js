@@ -43,10 +43,11 @@ const HomePage = () => {
 
 	return (
 		<>
-			<Container sx={{ textAlign: 'center', mt: 4 }}>
-				<Typography variant={isMobile ? 'h5' : 'h3'} fontWeight="bold" gutterBottom>
+			<Container sx={{ textAlign: 'center', mt: isMobile ? 3 : 4, display: 'flex', flexDirection: 'column', gap: isMobile ? 2 : 3 }}>
+				<Typography variant={isMobile ? 'h5' : 'h3'} fontWeight="bold">
         	להיפגש. ללמוד. להתפתח.
 				</Typography>
+				<Divider />
 				{/* <Typography
 					variant={isMobile ? 'body1' : 'h6'}
 					color="textSecondary"
@@ -65,7 +66,6 @@ const HomePage = () => {
 							onDelete={() => setSelectedTag('')}
 							variant='filled'
 							sx={{
-								mt: 2,
 								backgroundColor: getTagColor(selctedTag),
 								color: 'white',
 							}}
@@ -73,7 +73,13 @@ const HomePage = () => {
 					</div>
 				)}
 
-				<Box sx={{ mt: 4, display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
+				<Typography
+					variant={isMobile ? 'h6' : 'h4'}
+					sx={{ textAlign: 'start' }}
+				>
+					קבוצות וסדנאות קרובות
+				</Typography>
+				<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
 					<>
 						{futureCourses.map(course =>
 							<CourseCard
@@ -95,22 +101,22 @@ const HomePage = () => {
 				{pastCourses.length > 0 && (
 					<>
 						{!showPastCourses ? (
-							<Button
-								variant="outlined"
-								sx={{ mt: 4, mb: 4 }}
-								onClick={() => setShowPastCourses(!showPastCourses)}
-							>
-						הצג סדנאות קודמות
-							</Button>
+							<div style={{ display: 'flex', justifyContent: 'center' }}>
+								<Button
+									variant="outlined"
+									onClick={() => setShowPastCourses(!showPastCourses)}
+								>
+									הצג סדנאות קודמות
+								</Button>
+							</div>
 						) : (
 							<>
-								<Divider sx={{ mt: 4 }} />
+								<Divider/>
 								<Typography
-									variant="h5"
-									fontWeight="bold"
-									sx={{ mt: 4, textAlign: 'start' }}
+									variant={isMobile ? 'h6' : 'h4'}
+									sx={{ textAlign: 'start' }}
 								>
-						סדנאות קודמות
+									סדנאות קודמות
 								</Typography>
 							</>
 						)}
@@ -118,7 +124,7 @@ const HomePage = () => {
 				)}
 
 				{showPastCourses && (
-					<Box sx={{ mt: 4, mb: 2, display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
+					<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
 						{pastCourses.map(course =>
 							<CourseCard
 								key={course.id}
