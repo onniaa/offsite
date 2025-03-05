@@ -23,6 +23,7 @@ const CoursePage = () => {
 	window.scrollTo(0, 0);
 
 	const [courseToRegister, setCourseToRegister] = useState(null);
+	const [showAdditionalDescription, setShowAdditionalDescription] = useState(false);
 
 	const course = courses.find(course => course.id === classId);
 	if (!course) {
@@ -33,6 +34,7 @@ const CoursePage = () => {
 		teacher,
 		title,
 		description,
+		additionalDescription,
 		duration,
 		startDate,
 		startTime,
@@ -81,6 +83,30 @@ const CoursePage = () => {
 					<Typography variant={bodyVariant} gutterBottom>
 						{description}
 					</Typography>
+
+					{additionalDescription && (
+						<>
+							{showAdditionalDescription ? (
+								<>
+									<br />
+									<Typography variant={bodyVariant} gutterBottom>
+										{additionalDescription}
+									</Typography>
+								</>
+							) : (
+								<Button
+									onClick={() => setShowAdditionalDescription(true)}
+									variant="outlined"
+									size="small"
+									color="primary"
+									sx={{ my: 1 }}
+								>
+									קרא עוד...
+								</Button>
+							)}
+						</>
+					)}
+
 					<Typography variant={bodyVariant} gutterBottom>
                 —
 					</Typography>
