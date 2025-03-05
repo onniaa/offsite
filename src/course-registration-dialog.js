@@ -56,8 +56,8 @@ export const RegistrationDialog = ({ open, handleClose, course }) => {
 				{!submitted ? (
 					<Box display="flex" flexDirection="column" gap={2}>
 						<TextField placeholder="שם מלא" name="name" value={formData.name} onChange={handleChange} />
-						<TextField fullWidth name="gender" placeholder="מגדר" value={formData.gender} onChange={handleChange}/>
-						<TextField fullWidth name="age" placeholder="גיל" value={formData.age} onChange={handleChange}/>
+						<TextField fullWidth name="gender" placeholder="מגדר (אופציונלי)" value={formData.gender} onChange={handleChange}/>
+						<TextField fullWidth name="age" placeholder="גיל (אופציונלי)" value={formData.age} onChange={handleChange}/>
 						<TextField fullWidth placeholder="אימייל" name="email" value={formData.email} onChange={handleChange} />
 						<TextField fullWidth placeholder="מספר טלפון" name="phone" value={formData.phone} onChange={handleChange} />
 					</Box>
@@ -79,7 +79,7 @@ export const RegistrationDialog = ({ open, handleClose, course }) => {
 						onClick={handleSubmit}
 						variant="contained"
 						sx={{ backgroundColor: 'rgb(34, 36, 42)', color: 'white' }}
-						disabled={Object.values(formData).some(value => !value)}
+						disabled={!formData.name || !formData.email || !formData.phone}
 					>
 						{submitText}
 					</Button>
