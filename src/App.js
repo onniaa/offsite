@@ -3,6 +3,7 @@ import { Routes, Route, HashRouter, useNavigate } from 'react-router-dom';
 import { Typography, Divider, Container } from '@mui/material';
 
 import './App.css';
+import logo from './assets/logo.png';
 import HomePage from './home';
 import CoursePage from './course';
 import MovingRock from './moving-rock';
@@ -49,10 +50,21 @@ const Header = () => {
 	const navigate = useNavigate();
 	return (
 		<>
-			<div style={{ textAlign: 'end', cursor: 'pointer' }} onClick={() => navigate('/')}>
+			<div style={{
+				display: 'flex',
+				alignItems: 'center',
+				gap: 4,
+				justifyContent: 'end',
+				cursor: 'pointer'
+			}}
+			onClick={() => navigate('/')}>
 				<Typography variant="h6" fontWeight="bold" style={{ fontFamily: 'Monomakh' }}>
 					platform.io
 				</Typography>
+				<img
+					src={logo}
+					style={{ height: 24 }}
+				/>
 			</div>
 
 			<Divider sx={{ backgroundColor: 'black', height: 2, mb: 2, mt: 1 }} />
