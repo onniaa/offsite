@@ -29,6 +29,7 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 	return (
 		<Card
 			key={course.id}
+			onClick={() => navigate(`/classes/${course.id}`)}
 			sx={{
 				width: 350,
 				maxHeight: 600,
@@ -37,10 +38,10 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 				borderRadius: 3,
 				overflow: 'hidden',
 				boxShadow: 3,
+				cursor: 'pointer',
 			}}
 		>
 			<CardMedia
-				onClick={() => navigate(`/classes/${course.id}`)}
 				component="img"
 				height="140"
 				image={course.image}
@@ -51,7 +52,6 @@ export const CourseCard = ({ course, selectedTag, setSelectedTag }) => {
 				<Typography
 					variant={isMobile ? 'h7' : 'h6'}
 					fontWeight="bold"
-					onClick={() => navigate(`/classes/${course.id}`)}
 					style={{ cursor: 'pointer' }}
 				>
 					{course.title}
