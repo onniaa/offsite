@@ -9,7 +9,7 @@ import App from './App';
 const theme = createTheme({
 	direction: 'rtl',
 	typography: {
-		fontFamily: '"Heebo", serif',
+		fontFamily: '"AlefMultiGndr", serif',
 		color: 'rgb(34, 36, 42)',
 	},
 	palette: {

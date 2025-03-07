@@ -47,6 +47,13 @@ const HomePage = () => {
 				<Typography variant={isMobile ? 'h5' : 'h3'} fontWeight="bold">
         	להיפגש. ללמוד. להתפתח.
 				</Typography>
+				<Typography
+					variant={isMobile ? 'body1' : 'h6'}
+					color="textSecondary"
+				>
+					ברוכ׊׉ השב׊׉!
+					בעולם מלא במסכים, אנחנו כאן בשביל המפגשים האמיתיים.
+				</Typography>
 				<Divider />
 				{/* <Typography
 					variant={isMobile ? 'body1' : 'h6'}
