@@ -1,7 +1,7 @@
 export const courses = [
 	{
 		id: '2a8ecc4d-8d28-4422-bfde-f92cf262c44b',
-		title: 'האמת הלא נוחה על ליברליזם: מה הקרבנו בשם החירות?',
+		title: 'האמת הלא נעימה על ליברליזם: מה הקרבנו בשם החירות?',
 		description: `
 			בשנים האחרונות, דמוקרטיות ליברליות רבות מתמודדות עם גל פופוליזם שיוצא נגד כל מה שהן מייצגות, גל שצובר תאוצה תוך שימוש בפייק ניוז, רגשות טינה ותסכול על רקע חברתי-כלכלי.
 			קל מדי לפתור את עצמנו מכל הביקורות הללו תוך שיוכן ל״ביביסטים״, טראמפיסטים״ וכדומה.
@@ -27,7 +27,7 @@ export const courses = [
 			total: 15,
 			available: 3,
 		},
-		image: 'https://images.unsplash.com/photo-1620662831351-9f68f76d0b9a?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fHRoaW5rfGVufDB8fDB8fHww'
+		image: 'https://platform-io-images.s3.us-east-2.amazonaws.com/liberalism-cover.webp',
 	},
 	{
 		id: 'd23b6e0d-3a46-412a-97e2-6b8c438ef890',
