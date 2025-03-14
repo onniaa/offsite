@@ -18,16 +18,16 @@ export const courses = [
 		},
 		price: 375,
 		duration: 5,
-		startDate: 'רביעי, 12 במרץ, 2025',
-		startDateEn: '2025-03-12',
+		startDate: 'רביעי, 19 במרץ, 2025',
+		startDateEn: '2025-03-19',
 		startTime: '19:00',
 		endTime: '20:45',
-		location: 'תחנת רוח, החשמונאים 12',
+		location: 'נורמה הפקות, לבונטין 18, ת״א',
 		spots: {
 			total: 15,
 			available: 3,
 		},
-		image: 'https://platform-io-images.s3.us-east-2.amazonaws.com/liberalism-cover.webp',
+		image: 'https://platform-io-images.s3.us-east-2.amazonaws.com/lib-cover.webp',
 	},
 	{
 		id: 'd23b6e0d-3a46-412a-97e2-6b8c438ef890',
@@ -45,7 +45,7 @@ export const courses = [
 		startDateEn: '2025-02-25',
 		startTime: '07:30',
 		endTime: '08:45',
-		location: 'חוף גורדון, תל אביב',
+		location: 'חוף גורדון, ת״א',
 		spots: {
 			total: 8,
 			available: 0,
@@ -68,7 +68,7 @@ export const courses = [
 		startDateEn: '2025-02-05',
 		startTime: '18:00',
 		endTime: '19:30',
-		location: 'בית הסופרים, תל אביב',
+		location: 'בית הסופרים, ת״א',
 		spots: {
 			total: 10,
 			available: 2,
@@ -91,7 +91,7 @@ export const courses = [
 		startDateEn: '2025-01-20',
 		startTime: '07:00',
 		endTime: '08:00',
-		location: 'חוף ירושלים, תל אביב',
+		location: 'חוף ירושלים, ת״א',
 		spots: {
 			total: 20,
 			available: 5,
@@ -114,7 +114,7 @@ export const courses = [
 		startDateEn: '2025-01-10',
 		startTime: '20:00',
 		endTime: '21:30',
-		location: 'סלון הספרות, תל אביב',
+		location: 'סלון הספרות, ת״א',
 		spots: {
 			total: 12,
 			available: 0,

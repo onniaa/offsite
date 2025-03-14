@@ -16,6 +16,7 @@ import { ContactDialog } from './contact-dialog';
 
 const HomePage = () => {
 	const isMobile = useMediaQuery('(max-width:600px)');
+	const itemsGap = isMobile ? 3 : 4;
 
 	const [showPastCourses, setShowPastCourses] = useState(false);
 	const [open, setOpen] = useState(false);
@@ -43,7 +44,7 @@ const HomePage = () => {
 
 	return (
 		<>
-			<Container sx={{ textAlign: 'center', mt: isMobile ? 3 : 4, display: 'flex', flexDirection: 'column', gap: isMobile ? 2 : 3 }}>
+			<Container sx={{ textAlign: 'center', mt: isMobile ? 3 : 4, display: 'flex', flexDirection: 'column', gap: itemsGap }}>
 				<Typography variant={isMobile ? 'h5' : 'h3'} fontWeight="bold">
         	להיפגש. ללמוד. להתפתח.
 				</Typography>
@@ -86,7 +87,7 @@ const HomePage = () => {
 				>
 					קבוצות וסדנאות קרובות
 				</Typography>
-				<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
+				<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: itemsGap, justifyContent: 'center' }}>
 					<>
 						{futureCourses.map(course =>
 							<CourseCard
@@ -131,7 +132,7 @@ const HomePage = () => {
 				)}
 
 				{showPastCourses && (
-					<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2, justifyContent: 'center' }}>
+					<Box sx={{ display: 'flex', flexWrap: 'wrap', gap: itemsGap, justifyContent: 'center' }}>
 						{pastCourses.map(course =>
 							<CourseCard
 								key={course.id}
